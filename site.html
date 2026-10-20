@@ -561,9 +561,9 @@ footer{background:var(--green-deep);color:rgba(255,255,255,0.5);padding:60px 56p
   <section class="hero-band">
     <div class="hero-band-line"></div>
     <div class="hero-band-content">
-      <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Mon témoignage</span></div>
-      <h1>Le chemin que<br><em>j'ai marché.</em></h1>
-      <p>Avant de marcher avec d'autres, j'ai marché moi-même. Voici mon histoire.</p>
+      <div class="hero-eyebrow"><div class="hero-eyebrow-line"></div><span class="hero-eyebrow-text">Autour du livre</span></div>
+      <h1>Le chemin <em>parcouru.</em></h1>
+      <p>Un extrait de mon livre « L'amour véritable : de l'absence à la plénitude » et, bientôt, les témoignages de ses lectrices et lecteurs.</p>
     </div>
   </section>
 
@@ -591,9 +591,9 @@ footer{background:var(--green-deep);color:rgba(255,255,255,0.5);padding:60px 56p
         <div class="temo-verset-ref">Genèse 28:16 · Le verset qui a tout changé</div>
       </div>
       <div class="temo-appel">
-        <p>Tu as toi aussi une histoire à partager ? Un chemin de guérison que tu as marché ?</p>
-        <div class="temo-appel-sub">Les témoignages arrivent bientôt. Si tu as été touchée par RUAH et que tu souhaites partager ton expérience, écris-moi.</div>
-        <button class="btn-gold" onclick="showPage('contact')">Partager mon témoignage</button>
+        <p>Tu as lu « L'amour véritable : de l'absence à la plénitude » ? Qu'as-tu retenu de cette lecture ?</p>
+        <div class="temo-appel-sub">Cet espace accueillera les témoignages des personnes ayant lu le livre. Si un passage t'a touchée, encouragée ou invitée à réfléchir, tu peux partager ton ressenti. Ton témoignage ne sera publié qu'avec ton accord.</div>
+        <button class="btn-gold" onclick="partagerAvisLivre()">Partager mon retour de lecture</button>
       </div>
     </div>
   </section>
@@ -703,6 +703,7 @@ footer{background:var(--green-deep);color:rgba(255,255,255,0.5);padding:60px 56p
               <option>Choisir un sujet...</option>
               <option>Accompagnement individuel</option>
           <option>Reviens à toi</option>
+              <option>Témoignage sur le livre</option>
               <option>Commander le livre</option>
               <option>Question générale</option>
             </select>
@@ -881,6 +882,11 @@ window.addEventListener('hashchange',function(){
   if(route && (route==='reviens-a-toi'||/^reviens-a-toi\/\d{2}$/.test(route))) showPage(route);
 });
 
+function partagerAvisLivre() {
+  showPage('contact');
+  var select=document.querySelector('#page-contact select[name="sujet"]');
+  if(select) select.value='Témoignage sur le livre';
+}
 function openModal() {
   document.getElementById('modal-livre').classList.add('open');
   document.body.style.overflow = 'hidden';
